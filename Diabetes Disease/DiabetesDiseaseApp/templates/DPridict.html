@@ -1,0 +1,110 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Diabetes Disease Prediction System</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../static/css/Predict_style.css" />
+
+</head>
+<style>
+    .feildsub{
+    font-size: 13px;
+    font-weight: lighter;
+   
+    margin-top: 0%;
+    color:rgb(6, 186, 6);
+  }
+  .input-box{
+    margin-bottom: 15px;
+  }
+  .wrapper{
+    margin-left:250px;
+    justify-content: center;
+    width: 1000px;
+  }
+  .first{
+    margin-right: 40px;
+  }
+</style>
+<body>
+  <header>
+   
+    <nav class="navigation">
+      <a href="{% url 'DPridict' %}">Diabetes Prediction</a>
+				<a href="{% url 'Food_index' %}" >Food Recommendation</a>
+				<a href="{% url 'Yoga' %}" >Yoga Recommendation</a>
+        <a href="{% url 'Logs' %}">Logs</a>
+				<a href="{% url 'index' %}">Logout</a>		
+    </nav>
+  </header>
+
+
+  <h3 class="h3">{{ error }}</h3>
+  <div class="wrapper">
+    
+    <form name="f1" action="{% url 'pridictAc' %}" method="post" OnSubmit="return checkFields(this);">
+      {% csrf_token %}
+      <section class="second">
+        <section class="first">
+        <div class="input-box" >
+          <input type="text" name="t1" placeholder="Age" title="Enter your age" required="required" /></div>
+        <div class="input-box" >
+          <input type="text" name="t2" placeholder="Gender" title="Enter your gender" required="required" /><br>
+          <label class="feildsub">**Male as 0, Female as 1</label>
+        </div>
+       
+        <div class="input-box" ><input type="text" name="t3" placeholder="Frequent Urination" title=" excessive production of urine." required="required" /> <br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box" ><input type="text" name="t4" placeholder="Increased Thirst" title=" drinking more fluids than usual." required="required" /> <br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box" ><input type="text" name="t5" placeholder=" Partial Paralysis" title="Partial paresis refers to a condition of partial weakness or paralysis in a part of the body." required="required" /> <br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+          <div class="input-box" ><input type="text" name="t14" placeholder="obesity" title="Obesity is a complex health condition characterized by excessive body fat accumulation." required="required" /><br>
+            <label class="feildsub">**No as 0, Yes as 1</label></div>
+
+    <div class="input-box" ><input type="text" name="t15" placeholder="weakness" title="lack of strength or energy" required="required" /><br>
+              <label class="feildsub">**No as 0, Yes as 1</label></div>
+
+    <div class="input-box" ><input type="text" name="t16" placeholder="Increased Appetite" title="Polyphagia refers to excessive hunger or increased appetite" required="required" /><br>
+                <label class="feildsub">**No as 0, Yes as 1</label></div>
+        </section>
+        <section class="first">
+        <div class="input-box" ><input type="text" name="t6" placeholder="Sudden Weight Loss" title="Sudden weight loss refers to a rapid and unintentional reduction in body weight within a short period." required="required" /><br>
+           <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box" ><input type="text" name="t7" placeholder="Irritability" title="Irritability is a state of easily becoming annoyed, impatient, or agitated." required="required" /> <br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box" ><input type="text" name="t8" placeholder="Delayed Healing" title="Delayed healing is a prolonged or slowed process of recovering from injuries or wounds." required="required" /> <br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box" ><input type="text" name="t9" placeholder="Hair Loss" title="Alopecia is a medical term for hair loss, either in specific areas or across the entire body." required="required" /><br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+       
+        <div class="input-box"><input type="text" name="t10" placeholder="Itching" required="required" /><br> <label class="feildsub">**No as 0, Yes as 1</label></div>
+        <div class="input-box" ><input type="text" name="t11" placeholder="Genital thrush" title="Genital thrush, also known as genital candidiasis or yeast infection, is a common fungal infection caused by Candida species, leading to symptoms 
+          such as itching, redness, and abnormal discharge in the genital area." required="required" /><br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+
+        <div class="input-box" ><input type="text" name="t12" placeholder="Visual Blurring" title="Visual blurring refers to a loss of sharpness or clarity in vision, often caused by refractive errors, eye strain, 
+          neurological conditions, or other underlying health issues." required="required" /><br>
+          <label class="feildsub">**No as 0, Yes as 1</label></div>
+
+        <div class="input-box" ><input type="text" name="t13" placeholder="Muscle Stiffness" title="Muscle stiffness is a sensation of reduced flexibility or increased resistance to movement in the muscles.
+          " required="required" /><br>
+              <label class="feildsub">**No as 0, Yes as 1</label></div>
+
+        
+      </section>
+    </section>
+      <input type="submit" class="btn" id="bt" value="Predict"></input>
+    </form>
+  </div>
+  <script src="../static/js/DP_script.js"></script>
+</body>
+</html>
+Partial Paresis

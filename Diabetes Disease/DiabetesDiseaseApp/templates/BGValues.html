@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  header {
+    position: fixed;
+    top:0;
+    left:0;
+    padding: 40px 100px;
+    display: flex;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.323);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+  }
+  body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(1, 50, 65);
+    background-size: cover;
+    background-position: center;
+  }
+  .navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color:aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right:40px;
+  }
+  .navigation .a2::after {
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -6px;
+    width: 90px;
+    height: 3px;
+    background: aliceblue;
+    transform-origin: right;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .navigation .a3::after {
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -6px;
+    width: 150px;
+    height: 3px;
+    background: aliceblue;
+    transform-origin: right;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .navigation a:hover::after {
+    transform: scaleX(1);
+  }
+    .BG{  
+        width: 440px;
+    display: block;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color:rgb(11, 11, 11);
+    font-weight: 500;
+    margin-top: 250px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+  }
+  .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+   
+  }
+  .input-box input {
+    width: 360px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+  }
+  .input-box input::placeholder {
+    color: #fff;
+  }
+  .input-box input:hover {
+    cursor: pointer;
+  }
+
+  
+  .new{
+    text-align: center;
+    justify-content: center;
+  }
+  
+  
+  
+</style>
+
+<body>
+    <header>
+        
+        <nav class="navigation">
+            <a href="{% url 'BGValues' %}">Record Health Data</a>
+            <a href="{% url 'analysis' %}">Analysis</a>
+            <a href="{% url 'DPridict' %}">Diabetes Prediction</a>
+            <a href="{% url 'Predict' %}" >Predict Insulin</a>
+            <a href="{% url 'Food_index' %}" >Food Recommendation</a>
+            <a href="{% url 'Yoga' %}" >Yoga Recommendation</a>
+            <a href="{% url 'index' %}">Logout</a>		
+        </nav>
+    </header>
+    
+    <section class="new">
+    <form method="post" action="{% url 'save' %}" >
+        {% csrf_token %}
+        <div class = "BG">
+            <div class="input-box">
+            <input type="text" placeholder="Enter Your Glucose Value" name="t1">
+        </div>
+        <div class="input-box">
+            <input type="date" name="t2" >
+        </div>
+        <div class="input-box">
+            <input type="submit" value="Save">
+        </div>
+    </div>
+    </section>
+   
+   
+
+    </form>
+</div>
+</section>
+</section>
+
+
+</body>
+</html>

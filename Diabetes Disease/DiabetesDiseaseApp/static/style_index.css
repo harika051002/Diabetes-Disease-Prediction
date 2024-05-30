@@ -1,0 +1,23 @@
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+header {
+	position: fixed;
+	top:0;
+	left:0;
+	padding: 20px 100px;
+	display: flex;
+	background: #051249;
+	width: 100%;
+    justify-content: space-between;
+	align-items: center;
+	z-index: 99;
+	
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Swiper CSS -->
+     <link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+
+     <!-- CSS -->
+     <link rel="stylesheet" href="../static/css/style.css" />
+
+</head>
+
+<body>
+    <header>     
+    <nav class = "navigation">
+        <a href="{% url 'DPridict' %}">Diabetes Prediction</a>
+        <a href="{% url 'Food_index' %}" >Food Recommendation</a>
+        <a href="{% url 'Yoga' %}" >Yoga Recommendation</a>
+        <a href="{% url 'Logs' %}">Logs</a>
+        <a href="{% url 'index' %}">Logout</a>			
+    </nav> 
+</header>
+
+<div class="box">
+<div class="wrapper">
+    <form method="post" action="{% url 'result_yoga' %}">
+        {% csrf_token %}
+    <div class="input-box">
+        <label for="disease" placeholder="Choose the Disease:"></label>
+        <select id="disease" name="disease" class="select-box" aria-placeholder="Choose the Disease:">
+            <option value="" disabled selected id="N">Choose the Disease:</option>
+            <option value="diabetes">Diabetes</option>
+            <option value="muscle">Muscle Pains</option>
+            <option value="pregnancy">Pregnancy</option>
+            <option value="obesity">Obesity</option>
+            <option value="Breathing">Breathing Problems</option>
+            <option value="constipation">Constipation</option>
+            <option value="kidney">Kidney Disease</option>
+            <option value="heart">Heart Disease</option>
+            <option value="eye">Eye Disease</option> 
+            <option value="concentration">Concentration</option>  
+            <option value="back">Back Pain</option>
+        </select>
+    </div>
+
+        <input type="submit" value="Find Asanas🔍" class="btn" ></label>
+    </form>
+</div>
+</div>
+
+<div class = "cs">
+    <div class="container swiper">
+        <div class="slide-container">
+            <div class="card-wrapper swiper-wrapper">
+                {% for row in result_data %}
+                <div class="card swiper-slide"> 
+                        <div class="name-job">
+                            <h3 class="name">{{ row.AName }}</h3> 
+                            <h4 class="description"><b>Description:</b><br><br>{{ row.Description }}</h4> 
+                        </div>    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="../static/js/swiper-bundle.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</div>
+
+</body>
+</html>

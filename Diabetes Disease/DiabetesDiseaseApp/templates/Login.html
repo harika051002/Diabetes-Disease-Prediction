@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Diabetes Disease Prediction System</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../static/css/Common_css.css" />
+</head>
+    <body>
+		<div class="wrapper">
+			<form name="f1" action="{% url 'UserLogin' %}" method="post" >	
+        {% csrf_token %}
+			<h1>Login</h1>
+      <p class="result">{{ error }}</p>
+      <div class="input-box">
+        <input type="text" name="t1" placeholder="Username" required>
+        <i class='bx bxs-user'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" name="t2" placeholder="Password" required>
+        <i class='bx bxs-lock-alt' ></i>
+      </div>
+      
+      <input type="submit" value="Login" class="btn" id="login">
+      <div class="register-link">
+        <p>Dont have an account? <a href="{% url 'Register' %}">Register</a></p>
+        <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+      </div>	
+				
+	</body>
+</html>

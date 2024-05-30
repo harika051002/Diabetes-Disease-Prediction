@@ -1,0 +1,247 @@
+/* Google Fonts - Poppins */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: rgb(1, 50, 65);
+}
+
+header {
+  position: fixed;
+  top:0;
+  left:0;
+  padding: 40px 100px;
+  display: flex;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.323);
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  
+}
+
+.logo {
+  font-size: 2em;
+  color: aliceblue;
+  user-select: none;
+}
+
+
+.wrapper{
+width: 420px;
+background:  rgb(1, 42, 54);
+border: 2px solid rgba(255, 255, 255, .2);
+backdrop-filter: blur(9px);
+color: #fff;
+border-radius: 12px;
+padding: 30px 40px;
+display: block;
+
+}
+
+.wrapper .input-box{
+position: relative;
+width: 100%;
+height: 50px;
+margin: 30px 0;
+}
+
+.input-box label::placeholder{
+color: #fff;
+}
+
+.navigation {
+position: relative;
+font-size: 1.1em;
+color:aliceblue;
+text-decoration: none;
+font-weight: 500;
+margin-right:40px;
+}
+
+.navigation a{
+position: relative;
+font-size: 1.1em;
+color:aliceblue;
+text-decoration: none;
+font-weight: 500;
+margin-left:40px;
+}
+
+.navigation .a2::after {
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -6px;
+  width: 100px;
+  height: 3px;
+  background: aliceblue;
+  transform-origin: right;
+  border-radius: 3px;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+.wrapper .btn{
+margin-top: 2%;
+width: 100%;
+height: 45px;
+background: rgba(245, 245, 245, 0.592);
+border: 2px solid white;
+border: none;
+outline: none;
+border-radius: 40px;
+box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+cursor: pointer;
+font-size: 16px;
+font-weight: 500;
+color:rgb(4, 4, 4);
+font-weight: 600;
+}
+
+.wrapper .btn:hover {
+  background: aliceblue;
+  color: #162938;
+}
+.select-box{
+  width: 100%;
+  height : 45px;
+  background: rgba(255, 255, 255, 0.837);
+  position: relative;
+  border-radius: 8px;
+}
+.select-box option{
+  height: 45px;
+  padding: 10px 15px;
+  line-height: 18px;
+  font-size: 16px;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#nutrient {
+  font-size: 0.75em;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+#disease {
+  font-size: 0.75em;
+  font-weight: 500;
+}
+.select-box:after{
+content: "";
+position: absolute;
+right:8px ;
+top:50%;
+margin-top: -4px;
+border-top: 8px solid #ccc;
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+pointer-events: none;
+}
+
+
+.box{
+  margin-top:170px;
+  margin-left:500px;
+  margin-bottom: 70px;
+  justify-content:center;
+}
+
+.text{
+  text-align: center;
+  font-size: 2em;
+  color:rgb(252, 252, 252);
+  font-weight: bolder;
+}
+#N{
+  font-size: 15px;
+  font-weight: 55px;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  padding: 60px 0;
+}
+.slide-container {
+  margin: 0 30px;
+  overflow: hidden;
+}
+.card {
+  background: rgba(255, 255, 255, 0.837);
+  
+}
+.description{
+  margin-top: 15px;
+  text-transform: capitalize;
+  font-weight: lighter;
+  font-size: 15px;
+  line-break: normal;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+.name-job{
+  padding: 40px;
+}
+.name{
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  font-size: large;
+}
+.catagory{
+  font-weight: lighter;
+  text-transform: capitalize;
+}
+
+.Veg_Non{
+  font-weight: lighter;
+  text-transform: capitalize;
+}
+.card .profile-details {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  padding: 15px;
+}
+
+
+.swiper-navBtn {
+  color: #000;
+  height: 50px;
+  width: 50px;
+  transform: translateY(-40%);
+  background: #fff;
+  border-radius: 50%;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 24px;
+}
+
+.swiper-pagination-bullet {
+  background-color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-navBtn {
+    display: none;
+  }
+}

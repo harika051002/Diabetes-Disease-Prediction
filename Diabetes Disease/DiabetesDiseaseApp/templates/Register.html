@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Diabetes Disease Prediction System</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../static/css/Common_css.css" />
+
+<script>
+  function checkFields(f2) {
+    const name = f2.t3.value;
+    const email = f2.t5.value;
+    const password = f2.t4.value;
+    const confirmPassword = f2.t7.value;
+
+    // Javascript Regex for Email Validation.
+    const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+
+    // Javascript Regex for Name validation
+    const regName = /^[a-zA-Z][a-zA-Z0-9_]*$/;
+
+
+    if (name == "" || !(regName.test(name))) {
+      window.alert("Name should only consists of alphanumeric characters");
+      f2.t3.focus();
+      return false;
+    }
+
+   
+    if (password == "") {
+      alert("Please enter your password");
+      f2.t4.focus();
+      return false;
+    }
+
+    if (password.length < 6) {
+      alert("Password should be at least 6 characters long");
+      f2.t4.focus();
+      return false;
+    }
+
+    if (confirmPassword == "" || confirmPassword !== password) {
+      alert("Passwords do not match");
+      f2.t7.focus();
+      return false;
+    }
+
+    if(email == "" || !(regEmail.test(email))){
+      alert("Enter a valid email");
+      f2.t5.focus();
+      return false;
+
+    }
+
+    return true;
+  }
+</script>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Register</h1>
+    <p class="result">{{ error }}</p>
+    <form name="f2" method="post" action="{% url 'Signup' %}" onsubmit="return checkFields(this);">
+      {% csrf_token %}
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Username" name="t3" required>
+      </div>
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" name="t4" required>
+      </div>
+      
+      <div class="input-box">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" name="t7" required>
+      </div>
+      <div class="input-box">
+        <input type="email" id="email" placeholder="email" name="t5" required>
+      </div>
+      <input type="submit" value="Signup" class="btn" id="Signup">
+      <div class="remember-forgot">
+        <label>Already Registered!</label>
+        <a href="{% url 'Login' %}"><b>Please Login</b></a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

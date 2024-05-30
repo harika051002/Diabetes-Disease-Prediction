@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendation System</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+
+<body>
+    <header>
+        
+    <nav class = "navigation">
+        <a href="{% url 'DPridict' %}">Diabetes Prediction</a>
+				<a href="{% url 'Food_index' %}" >Food Recommendation</a>
+				<a href="{% url 'Yoga' %}" >Yoga Recommendation</a>
+                <a href="{% url 'Logs' %}">Logs</a>
+				<a href="{% url 'index' %}">Logout</a>			
+    </nav> 
+</header>
+
+<div class="box">
+<div class="wrapper">
+    <form method="post" action="/result">
+        {% csrf_token %}
+      <div class="input-box">
+        <label for="nutrient" placeholder="Veg/Non_Veg"></label>
+        <select id="nutrient" name="nutrient" class="select-box" placeholder="Select:">
+            <option value="" disabled selected id="N">Veg/Non_Veg</option>
+            <option value="veg">Veg</option>
+            <option value="non-veg">Non_Veg</option>
+           
+        </select>
+    </div>
+    <div class="input-box">
+        <label for="disease" placeholder="Choose the Disease:"></label>
+        <select id="disease" name="disease" class="select-box" aria-placeholder="Choose the Disease:">
+            <option value="" disabled selected id="N">Choose the Disease:</option>
+            <option value="diabeties">Diabeties</option>
+            <option value="cancer">Cancer</option>
+            <option value="obesity">Obesity</option>
+            <option value="hypertension">Hypertension</option>
+            <option value="goitre">Goitre</option>
+            <option value="anemia">Anemia</option>
+            <option value="pregnancy">Pregnancy</option>
+            <option value="rickets">Rickets</option>
+            <option value="scurvy">Scurvy</option>
+            <option value="kidney_disease">Kidney_disease</option>
+            <option value="heart_disease">Heart_disease</option>
+            <option value="eye_disease">Eye Disease</option>   
+        </select>
+    </div>
+
+        <input type="submit" value="FIND FOOD 🔍" class="btn" ></label>
+    </form>
+</div>
+
+</div>
+
+<div class="text">{{message}}</div>
+<div class = "cs">
+    <div class="container swiper">
+        <div class="slide-container">
+            <div class="card-wrapper swiper-wrapper">
+                {% for row in result_data %}
+                <div class="card swiper-slide"> 
+                        <div class="name-job">
+                            <h3 class="name">{{ row.Name }}</h3>
+                            <h4 class="catagory"> <b>Catagory:</b>{{ row.catagory }}</h4>
+                            <h4 class="Veg_Non"><b>Nutrient:</b> {{ row.Nutrient }}</h4>
+                            <h4 class="description"><b>Ingredients:</b> <br><br>{{ row.description }}</h4>
+                            
+                        </div>    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="../static/js/swiper-bundle.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</div>
+
+
+</body>
+</html>

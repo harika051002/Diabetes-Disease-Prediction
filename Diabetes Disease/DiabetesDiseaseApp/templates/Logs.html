@@ -1,0 +1,75 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Diabetes Disease Prediction System</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../static/css/Predict_style.css" />
+<style>
+    .record-box {
+        width: 70%;
+        margin-left:30px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: whitesmoke;
+    }
+    .box{
+        padding: 30px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+    text-align: center;
+    padding: 30px;
+  }
+</style>
+</head>
+<body>
+    <header>
+   
+        <nav class="navigation">
+         
+          <a href="{% url 'DPridict' %}">Diabetes Prediction</a>
+                    <a href="{% url 'Food_index' %}" >Food Recommendation</a>
+                    <a href="{% url 'Yoga' %}" >Yoga Recommendation</a>	
+                    <a href="{% url 'Logs' %}">Logs</a>	
+                    <a href="{% url 'index' %}">Logout</a>	
+        </nav>
+      </header>
+    <form name="f1" method="post" action="{% url 'log' %}">
+        {% csrf_token %}
+        <div class="box">
+            <div class="input-box">
+                <input type="submit" value="show Logs">
+               </div> 
+               </div>  
+    </form>
+
+    {% if data %}
+    {% for record in data %}
+        <div class="record-box">
+            <p><strong>Date:</strong> {{ record.Date }}</p>
+            <p><strong>Username:</strong> {{ record.username }}</p>
+            <p><strong>Age:</strong> {{ record.Age }}</p>
+            <p><strong>Gender:</strong> {{ record.Gender }}</p>
+            <p><strong>Frequent Urination:</strong> {{ record.Polyuria}}</p>
+            <p><strong>Increased Thirst:</strong> {{ record.Polydipsia }}</p>
+            <p><strong>Partial Paralysis:</strong> {{ record.sudden_weight_loss }}</p>
+            <p><strong>Obestiy:</strong> {{ record.Polyphagia }}</p>
+            <p><strong>Weakness:</strong> {{ record.Genital_thrush }}</p>
+            <p><strong>Increased Appetite:</strong> {{ record.Itching }}</p>
+            <p><strong>Sudden Weight Loss:</strong> {{ record.visual_blurring }}</p>
+            <p><strong>Irritability:</strong> {{ record.Irritability }}</p>
+            <p><strong>delayed healing:</strong> {{ record.delayed_healing }}</p>
+            <p><strong>Hair Loss:</strong> {{ record.partial_paresis }}</p>
+            <p><strong>Itching:</strong> {{ record.muscle_stiffness }}</p>
+            <p><strong>Genital thrush:</strong> {{ record.Obesity}}</p>
+            <p><strong>Visual Blurring:</strong> {{ record.Alopecia}}</p>
+            <p><strong>Output:</strong> {{ record.output }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p></p>
+{% endif %}
+</body>

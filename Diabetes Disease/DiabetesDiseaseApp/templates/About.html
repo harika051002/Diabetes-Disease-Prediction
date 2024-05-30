@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendation System</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    }
+    
+   
+
+    body {
+    display: block;
+    margin-top: 8%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(1, 50, 65);
+    background-size:cover ;
+    background-position: center;
+    }
+   
+    header {
+        position: fixed;
+        top:0;
+        left:0;
+        padding: 30px 100px;
+        display: flex;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.323);
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+        
+    }
+  
+    .logo {
+        font-size: 2em;
+        color: rgb(254, 251, 251);
+        user-select: none;
+    }
+
+    .navigation {
+    position: relative;
+    font-size: 1.1em;
+    color:aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right:40px;
+    }
+
+    .navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color:rgb(251, 251, 251);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left:40px;
+    }
+
+    .navigation .a2::after {
+        content: '';
+        position: absolute;
+        left:0;
+        bottom: -6px;
+        width: 50px;
+        height: 3px;
+        background: aliceblue;
+        transform-origin: right;
+        border-radius: 3px;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navigation a:hover::after {
+        transform: scaleX(1);
+    }
+
+    .intro{   
+     display: flex;
+     overflow: hidden;
+     
+    }
+
+    .container {   margin-top: 15px;
+        color: #fcfcfc;
+        width: 45%;
+        border-radius: 10px;
+        padding: 40px;
+        line-height: 28px;
+        text-align: center;
+        margin-left: 30px;
+       font-size: 18px;  
+    }
+    
+    .intro .i{
+        width: 600px;
+        height: 414px;
+    }
+    .container p{
+        font-family: sans-serif;
+    }
+
+    .container1 {   
+        color: #fcfcfc;
+        float:right;
+        width:500px;
+        border-radius: 10px;
+        padding: 40px;
+        line-height: 28px;
+        text-align: center;
+        margin-left:60px;
+       margin-bottom: 20px;
+       font-size: 18px;
+       
+    }
+    .container1 p{
+        font-family: sans-serif;
+    }
+    .container2 {
+        color: #fcfcfc;
+        float: left;
+        width:500px;
+        margin-left:50px;
+        line-height: 28px;
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+       
+       margin-bottom: 20px;
+    }
+    .container2 p{
+        
+        font-family: sans-serif;
+    }
+
+    .first{
+        width: 100%;
+        padding:30px;
+        margin-right:20px;
+        display:flex;
+        background:rgb(1, 32, 41);
+        justify-content: space-around;
+    }
+    .second{
+        display:flex;
+        width: 100%;
+        padding:30px;
+        margin-right: 20px;
+        background:  rgb(1, 42, 54);
+        justify-content: space-around;
+    }
+    .third{
+        display:flex;
+        width: 100%;
+        padding:30px;
+        background: rgb(1, 32, 41);  
+        justify-content: space-around;
+    }
+    .types{
+       text-align: center;
+       font-size: 2em;
+       font-weight: bold;
+       color: white;
+       padding: 30px; 
+       margin-top: 50px;
+       margin-bottom:50px;
+       background: rgb(1, 50, 65);
+      
+    }
+    .h2{
+        text-align: left;
+        margin-left: 170px;
+        
+       font-size: 2em;
+       font-weight: bold;
+       color: white;
+       padding: 30px; 
+       background:blur(65);
+       
+    }
+    .type1{
+       width: 50%;
+       justify-content: space-around;
+       color:white;
+       font-size: 2em;
+       font-weight: bold;
+       text-align: center;  
+       
+    }
+    .type1 img{
+        width:616px;
+        height: 417px;
+        padding: 20px;
+    }
+    .type2 img{
+        width:616px;
+        height: 417px;
+        padding: 20px;
+    }
+ 
+    .type2{
+       width: 50%;
+       justify-content: space-around;
+       color:white;
+       font-size: 2em;
+       font-weight: bold;
+       text-align: center;
+    }
+    .type3{
+       width: 50%;
+       justify-content: space-around;
+       color:white;
+       font-size: 2em;
+       font-weight: bold;
+       text-align: center;
+    }
+    .type3 img{
+        width:616px;
+        height: 417px;
+        padding: 20px;
+    }
+  
+
+</style>
+<body>
+    <header>
+        <h2 class="logo" >Diabetes Prediction System</h2>
+        <nav class="navigation">
+            <a href="{% url 'index' %}" class="a2">Home</a>
+        </nav>
+    </header>
+   
+   <section class="intro">   
+        <div class="container">
+            <h2 class="h2">Diabetes</h2>
+            <p>Diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy.
+                Your body breaks down most of the food you eat into sugar (glucose) and releases it into your bloodstream.
+                When your blood sugar goes up, it signals your pancreas to release insulin. Insulin acts like a key to let the 
+                blood sugar into your body’s cells for use as energy. With diabetes, your body doesn’t make enough insulin or can’t
+                use it as well as it should. When there isn’t enough insulin or cells stop responding to insulin, too much blood sugar stays in your bloodstream. 
+                Over time, that can cause serious health problems, such as heart disease, vision loss, and kidney disease.<br> 
+ 
+            </p>
+        </div>
+        <div class="i"><img src="../static/diabetes.png"> </div>
+    </section>
+    <section class="types">
+        <h2>Types of Diabetes</h2>
+    </section>
+    
+        <div class="first">
+         <div class="type1"><img src="../static/ty1.webp"></div>   
+        <div class="container1">  
+            Type 1 diabetes is thought to be caused by an autoimmune reaction (the body attacks itself by mistake).
+            This reaction stops your body from making insulin. Approximately 5-10% of the people who have diabetes have type 1.
+            Type 1 diabetes can be diagnosed at any age, and symptoms often develop quickly. 
+            If you have type 1 diabetes, you’ll need to take insulin every day to survive. 
+            Currently, no one knows how to prevent type 1 diabetes. 
+        </div>
+    </div> 
+        <div class="second">      
+            <div class="container2">
+                With type 2 diabetes, your body doesn’t use insulin well and can’t keep blood sugar at normal levels. 
+                About 90-95% of people with diabetes have type 2. It develops over many years and is usually diagnosed in adults
+                (but more and more in children, teens, and young adults). You may not notice any symptoms, so it’s important to get your blood sugar 
+                tested if you’re at risk.<br>
+                Type 2 diabetes can be prevented or delayed with healthy lifestyle changes, such as:
+                Losing weight,
+                Eating healthy food,
+                Being active.
+            </div>
+            <div class="type2"><img src="../static/ty2"></div>
+       </div>
+       <div class="third">
+        <div class="type3"><img src="../static/gd.jpg"></div>  
+            <div class="container1">
+                Gestational diabetes develops in pregnant women who have never had diabetes.
+                If you have gestational diabetes, your baby could be at higher risk for health problems. 
+                Gestational diabetes usually goes away after your baby is born. 
+                However, it increases your risk for type 2 diabetes later in life.
+                Your baby is more likely to have obesity as a child or teen and develop type 2 diabetes later in life.</p>
+            </div>
+        </div>
+       
+  
+</body>
+</html>
